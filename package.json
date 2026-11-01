@@ -1,0 +1,65 @@
+{
+  "name": "dsh-dafeiyu-room",
+  "version": "0.6.4-preview.1",
+  "type": "module",
+  "description": "An observer-only pixel cabin and model-controlled body for the existing DSH agent.",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./client": "./lib/client.js"
+  },
+  "files": [
+    "src/",
+    "lib/",
+    "web/",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "bin/",
+    "THIRD_PARTY_NOTICES.md",
+    "docs/"
+  ],
+  "engines": {
+    "node": ">=24.9"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-llm": "0.2.1-rc.5"
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-tools": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-llm": "0.2.1-rc.5"
+  },
+  "dsh": {
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings-plugins"
+      ],
+      "platform": "web"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "preview": "node scripts/preview.js",
+    "viewer": "node bin/room-viewer.mjs"
+  },
+  "license": "Apache-2.0",
+  "bin": {
+    "dsh-room-viewer": "./bin/room-viewer.mjs",
+    "dsh-room-public-viewer": "./bin/room-public-viewer.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bearyluo/dsh-dafeiyu-room.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bearyluo/dsh-dafeiyu-room/issues"
+  },
+  "homepage": "https://github.com/bearyluo/dsh-dafeiyu-room#readme",
+  "overrides": {
+    "zod": "4.6.6"
+  }
+}

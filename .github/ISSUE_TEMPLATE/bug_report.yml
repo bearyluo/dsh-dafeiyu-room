@@ -1,0 +1,25 @@
+name: 预览版问题
+description: 报告安装、动作、画面或手机浮窗问题
+body:
+  - type: markdown
+    attributes:
+      value: 请勿上传配对完整链接、二维码、密钥、聊天正文或私人日志。
+  - type: input
+    id: versions
+    attributes:
+      label: 宿主与插件版本
+      placeholder: DSH SDK / 大肥鱼分支、插件版本
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: 设备与系统
+      placeholder: Windows / 安卓型号、系统版本 / 浏览器
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤、预期与实际结果
+      description: 截图请去除配对凭证和私人内容。
+    validations:
+      required: true

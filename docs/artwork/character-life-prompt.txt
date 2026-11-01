@@ -1,0 +1,12 @@
+Built-in imagegen, new generation, transparent background.
+The first reference-based request timed out upstream; the final request below regenerates the established blue-haired maid/whale-tail design without an image-edit upload.
+
+Transparent RGBA pixel art GAME SPRITE SHEET. Exactly FOUR equal columns and SIX equal rows (24 full-body isolated characters), no labels, no grid, no furniture, no scenery, no shadows. Cozy top-down 2D farming game sprites. One identical chibi girl in every cell: large head, deep navy blue long hair, blue eyes, white ruffled maid headband, navy short maid dress, white ruffled apron with a blue whale symbol, navy shoes and white socks, small blue WHALE TAIL extending behind her hair. Crisp square pixel clusters, limited blue/white palette, black outlines. Consistent head size and stable centered registration throughout all frames. Generous transparent gutters.
+Four sequential animation frames left-to-right per row:
+1 SIDE VIEW facing RIGHT seated on invisible bed edge, knees bent 90 degrees, legs dangling, hands on lap, gently swinging feet.
+2 SAME right-facing seated position holding a small PHONE with both hands and looking down, tapping screen.
+3 BACK THREE-QUARTER view facing UP, sitting CROSS LEGGED ON FLOOR, low compact pose, both hands extend forward to warm then rub together then extend. No fire.
+4 BACK VIEW facing UP, standing leaning forward to an invisible window sill, a hand resting on sill, head turning left and right. No window.
+5 SIDE VIEW facing RIGHT seated on invisible chair, white TEACUP in hands, four frames: cup at chest / raising cup / sipping at mouth / lowering cup.
+6 SIDE VIEW facing RIGHT seated on invisible bed, open brown BOOK in hands, four frames: holding book / looking down / turning page / holding book.
+Do not draw seats/beds/tables. Frame heads same scale, seated bodies shorter than standing, floor-sitting bodies shortest. Exactly 24 separate complete sprites in the specified regular grid, fully transparent background.

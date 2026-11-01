@@ -1,0 +1,59 @@
+name: Preview checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  host:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm audit --audit-level=high
+      - run: npm test
+      - run: npm pack --ignore-scripts --dry-run
+  android:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.13'
+      - name: Prepare Android 35 tools
+        shell: pwsh
+        run: |
+          & "$env:ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager.bat" 'platforms;android-35' 'build-tools;35.0.0'
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Native pairing and asset checks
+        shell: pwsh
+        run: |
+          javac -encoding UTF-8 -d android/build/test-classes android/src/io/dafeiyu/room/RoomConnection.java android/src/io/dafeiyu/room/CameraAssets.java android/test/RoomConnectionTest.java android/test/CameraAssetsTest.java
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          java -cp android/build/test-classes io.dafeiyu.room.RoomConnectionTest
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          java -cp android/build/test-classes io.dafeiyu.room.CameraAssetsTest
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Build and verify APK with disposable CI signing
+        shell: pwsh
+        run: |
+          python android/build.py --jdk "$env:JAVA_HOME" --tools "$env:ANDROID_HOME/build-tools/35.0.0" --platform "$env:ANDROID_HOME/platforms/android-35" --out dist/android-ci-development.apk
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: android-ci-development
+          path: dist/android-ci-development.apk
+          retention-days: 7

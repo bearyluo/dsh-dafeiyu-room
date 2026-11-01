@@ -1,0 +1,57 @@
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent;color:#f1e3bf;font-family:"Microsoft YaHei",system-ui,sans-serif}
+body{display:grid;place-items:center}
+.camera-shell{width:min(100vw,calc(100dvh * 4 / 3));aspect-ratio:4/3}
+.room-frame{position:relative;width:100%;height:100%;overflow:hidden;isolation:isolate;background:#365848}
+.scene{position:absolute;left:9%;top:8%;width:82%;z-index:1;aspect-ratio:4/3;background:url('./assets/cabin-v2.png') center/100% 100% no-repeat;clip-path:polygon(10.08287% 2.94659%,12.56906% 2.94659%,12.56906% 4.23573%,58.14917% 4.23573%,58.14917% 2.94659%,63.74309% 2.94659%,63.74309% 4.23573%,87.29282% 4.23573%,87.29282% 2.94659%,89.84807% 2.94659%,89.84807% 6.72192%,90.12431% 6.72192%,90.12431% 18.23204%,90.74586% 18.23204%,90.74586% 21.63904%,90.40055% 21.63904%,90.40055% 52.85451%,91.16022% 52.85451%,91.16022% 56.81400%,90.88398% 56.81400%,90.88398% 78.82136%,91.85083% 78.82136%,91.85083% 82.50460%,91.29834% 82.50460%,91.29834% 87.38490%,59.59945% 87.38490%,60.01381% 88.02947%,60.49724% 88.67403%,60.49724% 89.87109%,60.01381% 90.69982%,59.66851% 91.06814%,60.08287% 92.35727%,59.66851% 93.46225%,58.77072% 94.19890%,58.97790% 95.67219%,58.14917% 96.31676%,56.97514% 96.13260%,56.42265% 96.86924%,55.38674% 96.50092%,54.83425% 97.51381%,54.14365% 97.32965%,53.86740% 98.06630%,47.30663% 98.06630%,46.96133% 97.42173%,45.23481% 97.42173%,44.54420% 96.68508%,43.43923% 96.86924%,42.81768% 95.67219%,42.19613% 95.76427%,41.43646% 94.47514%,41.02210% 94.65930%,40.74586% 93.27808%,39.91713% 92.90976%,40.05525% 91.62063%,39.43370% 90.97606%,39.77901% 89.68692%,39.22652% 88.95028%,39.70994% 87.75322%,40.05525% 87.47698%,39.98619% 86.64825%,10.84254% 86.64825%,10.84254% 87.38490%,8.49448% 87.38490%,8.49448% 82.50460%,8.14917% 82.50460%,8.14917% 78.82136%,8.83978% 78.82136%,8.83978% 56.72192%,8.63260% 56.72192%,8.63260% 52.85451%,9.32320% 52.85451%,9.32320% 21.82320%,9.59945% 21.82320%,9.59945% 18.23204%,10.01381% 18.23204%,10.01381% 6.72192%);isolation:isolate;overflow:hidden;image-rendering:pixelated}
+.scene:after{content:"";position:absolute;inset:0;background:linear-gradient(#172b4d66,#14233833);mix-blend-mode:multiply;opacity:0;pointer-events:none;z-index:7;transition:opacity 2s}
+.scene.night:after{opacity:1}
+.warm-light{position:absolute;inset:0;background:radial-gradient(ellipse at 61% 24%,#f9aa5440,transparent 19%),radial-gradient(ellipse at 14% 25%,#ffcb4840,transparent 10%);mix-blend-mode:screen;z-index:8;pointer-events:none;animation:hearth 3.3s steps(4) infinite}
+.window-light{position:absolute;left:25%;top:19%;width:24%;height:36%;background:linear-gradient(130deg,#ffe4a01a,transparent 70%);clip-path:polygon(0 0,40% 0,100% 100%,30% 100%);z-index:1;pointer-events:none}
+.night .window-light{opacity:0}
+#actor{position:absolute;width:7.5%;aspect-ratio:2/3;transform:translate(-50%,-100%);z-index:5;pointer-events:none;will-change:left,top}
+#body{display:block;width:100%;height:100%;image-rendering:pixelated}
+.shadow{position:absolute;width:55%;height:7%;left:22.5%;bottom:-1%;background:#18251766;border-radius:50%;z-index:-1}
+#actor[data-posture="lie"] .shadow{display:none}
+#bed-cover{display:none;position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;z-index:6;pointer-events:none}
+#home-decor{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;z-index:2;pointer-events:none}
+#household{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;z-index:3;pointer-events:none}
+.scene.lamp-off .warm-light{background:radial-gradient(ellipse at 61% 24%,#f9aa5433,transparent 16%)}
+.scene.night.lamp-off:after{background:linear-gradient(#121b43a8,#14233888)}
+.curtains-closed .window-light{opacity:0}
+.window-weather{position:absolute;left:24.65%;top:8.85%;width:8.65%;height:6.1%;z-index:1;overflow:hidden;pointer-events:none}
+.night .window-weather{background:#1e3555ed}
+.night .window-weather:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 17% 22%,#dce4bb 0 1px,transparent 1px),radial-gradient(circle at 77% 33%,#dce4bb 0 1px,transparent 1px)}
+.window-weather:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 29%,#9c632d 29% 34%,transparent 34% 65%,#9c632d 65% 70%,transparent 70%),linear-gradient(transparent 49%,#a66b32 49% 56%,transparent 56%)}
+.scene[data-weather="rain"] .window-weather,.scene[data-weather="thunder"] .window-weather{background:#667c8dcc}
+.scene[data-weather="snow"] .window-weather{background:#8ca9b8aa}
+.scene[data-weather="rain"] .window-weather:before,.scene[data-weather="thunder"] .window-weather:before{content:"";position:absolute;inset:-12px 0;background:repeating-linear-gradient(115deg,transparent 0 8px,#bfd3d880 8px 9px,transparent 9px 14px);animation:window-rain .7s steps(4) infinite}
+.scene[data-weather="snow"] .window-weather:before{content:"";position:absolute;inset:-12px 0;background:radial-gradient(#e6e8d4 0 1px,transparent 1px) 0 0/11px 12px;animation:window-rain 3s steps(6) infinite}
+.curtains{position:absolute;left:24%;top:8.2%;width:10%;height:8%;z-index:2;pointer-events:none;display:flex;justify-content:space-between}
+.curtains i{width:0;height:100%;background:repeating-linear-gradient(90deg,#c6b489 0 3px,#ead6a3 3px 6px,#bfa978 6px 7px);box-shadow:1px 1px 1px #53372144;transition:width .5s steps(4)}
+.curtains-closed .curtains i{width:50%}
+.sleep-breath{display:none;position:absolute;z-index:9;font:10px Georgia,serif;letter-spacing:2px;color:#e5d9ad;text-shadow:1px 1px #253743}
+.sleeping .sleep-breath{display:block;animation:breathe 3s steps(4) infinite}
+.phone-notice{display:none;position:absolute;z-index:9;width:7px;height:10px;border:1px solid #c3d0b1;background:#85a9ad;box-shadow:0 0 0 2px #203a32}
+.message-waiting .phone-notice{display:block;animation:message-glow 2s steps(2) infinite}
+#preview-label,#camera-notice{position:absolute;z-index:10;bottom:18%;font-size:10px;padding:5px 8px;background:#19392be6;color:#eee0ba;border:1px solid #a49463}
+#preview-label{right:12%;background:#765636e6}
+#camera-notice{left:12%}
+[hidden]{display:none!important}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.offline .warm-light{animation:none}
+.offline #camera-notice{position:absolute;left:50%;bottom:3%;transform:translateX(-50%);border:0;border-radius:12px;padding:5px 10px;white-space:nowrap;background:#18382de0;font-size:10px}
+@keyframes hearth{50%{opacity:.65}}
+@keyframes window-rain{to{transform:translateY(12px)}}
+@keyframes breathe{50%{transform:translateY(-3px);opacity:.5}}
+@keyframes message-glow{50%{box-shadow:0 0 6px #d1dbad}}
+@media(max-width:600px){.sleep-breath{font-size:7px}#preview-label,#camera-notice{font-size:8px;padding:3px 5px}}
+@media(prefers-reduced-motion:reduce){.warm-light,.window-weather:before,.sleep-breath,.phone-notice{animation:none!important}.scene:after,.curtains i{transition:none}}
+
+.environment-back,.environment-weather{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;pointer-events:none}.environment-back{z-index:0}.environment-weather{z-index:2}#preview-label{right:3%;bottom:3%}
+
+#interactions{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;z-index:6;pointer-events:none}.lying #bed-cover{z-index:7}
+
+#actor[data-posture^="sit"] .shadow{display:none}
+
+#table-cover{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;clip-path:polygon(72.5% 69.6667%,77.75% 69.6667%,77.75% 66%,81% 66%,81% 80.3333%,72.5% 80.3333%);z-index:6;pointer-events:none}

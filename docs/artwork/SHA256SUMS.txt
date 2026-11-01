@@ -1,0 +1,12 @@
+7229f60b0b6e592d24c9c014bb685f482d6c878161481f92cbbdbbd29956fa2d  web/assets/cabin-v2.png
+aefa1c8c3473dd5e0930a10f32fc41616988d087323d8bfaa10ee9ac24d02044  web/assets/home-decor-v1.png
+f870d15670f71c57c8586744b53452632db6ab63ca70565de55ad94f22b4f0ca  web/assets/home-duvet-v1.png
+62af6153de6ae603cfa51ed49f50fdbfd29d115a8fe5bfe4b7f51ec9218dd300  web/assets/home-extras-v1.png
+b78412415db3aff59b57cd66ad8e91237bfd7b17a24ff0f69e9577efd8ea73fd  web/assets/home-linen-v1.png
+53058a37889c24d8ac065f16658f0a1b4a743c11c327a4a288225ee1099334ca  web/assets/home-switch-v1.png
+e9665217f1797872a08199bf905b72fedb110f7882171bf0413955934fdb298c  web/assets/home-washstand-v1.png
+929ef5eed641fa35bf8e21496fdda8228d1cb9dc4cfa4396a3810c3e7e6c185c  web/assets/lo-life-v3.png
+b4e75d878bf00d0c6c5a52ba22201196bc15bc81c67ac4360b114abaedb10a7c  web/assets/lo-poses.png
+cfe5d87b82a8cc90b4d6367085a2d2694ca89f2851b317368801071f9e93dfe3  web/assets/lo-sit-side.png
+303adda71982b1e3c5b99af9be9374887a5dba945601c8a326be47c0694db54e  web/assets/lo-walk.png
+9520a4b6ea7c29fe294b0247da821488f2857dd5889254deacb7bec683db039a  web/assets/outdoor-garden-v1.png

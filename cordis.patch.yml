@@ -1,0 +1,8 @@
+- insert:
+    - id: dsh-dafeiyu-room
+      name: dsh-dafeiyu-room
+      config:
+        enabled: true
+        idleMinutes: 2
+        cooldownMinutes: 10
+        maxDailyDecisions: 12

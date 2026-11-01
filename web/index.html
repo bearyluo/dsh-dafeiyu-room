@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>大肥鱼的小屋 · 观察画面</title><link rel="stylesheet" href="./camera.css"><script src="./motion.cjs" defer></script><script src="./simulation.cjs" defer></script><script src="./view-state.cjs" defer></script><script src="./environment.cjs" defer></script><script src="./sprite.cjs" defer></script><script src="./home.js" defer></script><script src="./camera.js" defer></script></head>
+<body><main class="camera-shell" aria-label="大肥鱼的小屋观察画面">
+  <section class="room-frame" aria-label="小屋实时画面">
+    <canvas class="environment-back" id="environment" width="480" height="360" aria-hidden="true"></canvas>
+    <div class="scene" id="room-scene" role="img" aria-label="田园像素木屋，大肥鱼自主活动"><div class="window-weather"></div><div class="curtains"><i></i><i></i></div><div class="warm-light"></div><div class="window-light"></div><canvas id="home-decor" width="1448" height="1086" aria-hidden="true"></canvas><canvas id="household" width="400" height="300" aria-hidden="true"></canvas><canvas id="bed-cover" width="400" height="300" aria-hidden="true"></canvas><div id="actor"><span class="shadow"></span><canvas id="body" width="48" height="72" aria-hidden="true"></canvas></div><canvas id="table-cover" width="1448" height="1086" aria-hidden="true" hidden></canvas><canvas id="interactions" width="400" height="300" aria-hidden="true"></canvas><span class="sleep-breath" id="sleep-cue" aria-hidden="true">z z Z</span><span class="phone-notice" id="phone-cue" aria-hidden="true"></span></div>
+    <canvas class="environment-weather" id="environment-weather" width="480" height="360" aria-hidden="true"></canvas><span id="camera-notice" role="status" hidden></span><span id="preview-label" hidden>动画验收 · 演示轨迹</span>
+  </section>
+</main><div class="visually-hidden" aria-label="小屋近况"><i id="signal"></i><span id="connection-label">连接小屋…</span><p id="activity" role="status">等待小屋状态</p><span id="clock"></span><span id="daylight"></span><p id="life-note"></p><p id="phone-note"></p><p id="weather-note"></p></div></body></html>
